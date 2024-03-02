@@ -6,6 +6,7 @@ exports.config = {
   hasPermssion: 0,
   credits: 'Shaon Ahmed',
   description: '',
+  usePrefix: true,
   commandCategory: 'Tiện ích',
   usages: [],
   cooldowns: 3
