@@ -1,48 +1,62 @@
+const dipto = require('axios');
+const fs = require('fs-extra');
 module.exports.config = {
-  name: "videomix",
-  version: "11.9.7",
+  name: "upt",
+  version: "1.0.2",
   hasPermssion: 0,
-  credits: "Shaon Ahmed",
-  description: "random love story video",
+  credits: "Mirai Team",
   usePrefix: true,
-  commandCategory: "video",
-  usages: "random",
-  cooldowns: 30,
+  description: "uptime bby",
+  commandCategory: "system",
+  cooldowns: 5,
+  dependencies: {
+    "pidusage": ""
+  }
 };
 
-module.exports.run = async function({ api, event }) {
-  const axios = require('axios');
-  const request = require('request');
-  const fs = require("fs");
-  var shaon = ["https://shaon-all-api-07mo.onrender.com/video/status",
-"https://shaon-all-api-07mo.onrender.com/video/sad",
-"https://shaon-all-api-07mo.onrender.com/video/baby",
-"https://shaon-all-api-07mo.onrender.com/video/love",
-"https://shaon-all-api-07mo.onrender.com/video/ff",
-"https://shaon-all-api-07mo.onrender.com/video/shairi",
-"https://shaon-all-api-07mo.onrender.com/video/humaiyun",
-"https://shaon-all-api-07mo.onrender.com/video/islam",
-"https://shaon-all-api-07mo.onrender.com/video/anime",
-"https://shaon-all-api-07mo.onrender.com/video/short",
-"https://shaon-all-api-07mo.onrender.com/video/event",
-"https://shaon-all-api-07mo.onrender.com/video/prefix",
-"https://shaon-all-api-07mo.onrender.com/video/cpl",
-"https://shaon-all-api-07mo.onrender.com/video/time",
-"https://shaon-all-api-07mo.onrender.com/video/lofi",
-"https://shaon-all-api-07mo.onrender.com/video/happy"
-]
-  var shaon1 = shaon[Math.floor(Math.random() * shaon.length)]
-  axios.get(shaon1).then(res => {
-  let ext = res.data.data.substring(res.data.data.lastIndexOf(".") + 1);
-  let count = res.data.count;
-  let shaon2 = res.data.shaon;
-  let callback = function () {
-          api.sendMessage({
-            body: `𝐒𝐏𝐀𝐘𝐒𝐇𝐄𝐀𝐋 𝐑𝐀𝐍𝐃𝐎𝐌 𝐌𝐈𝐗 
-${shaon2} 𝐕𝐈𝐃𝐄𝐎 𝐍𝐔𝐌𝐁𝐄𝐑:${count}...🎬\n\n｢𝐒𝐇𝐀𝐎𝐍 𝐏𝐑𝐎𝐉𝐄𝐂𝐓｣`,
-            attachment: fs.createReadStream(__dirname + `/cache/Shaoon.mp4`)
-          }, event.threadID, () => fs.unlinkSync(__dirname + `/cache/Shaoon.mp4`), event.messageID);
-        };
-        request(res.data.data).pipe(fs.createWriteStream(__dirname + `/cache/Shaoon.mp4`)).on("close", callback);
-      })
+function byte2mb(bytes) {
+  const units = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+  let l = 0, n = parseInt(bytes, 10) || 0;
+  while (n >= 1024 && ++l) n = n / 1024;
+  return `${n.toFixed(n < 10 && l > 0 ? 1 : 0)} ${units[l]}`;
+}
+
+module.exports.languages = {
+  "en": {
+    "returnResult": "BOT has been working for %1 hour(s) %2 minute(s) %3 second(s).\n\n❖ Total users: %4\n❖ Total Threads: %5\n❖ Cpu usage: %6%\n❖ RAM usage: %7\n❖ Ping: %8ms"
+  }
+}
+//▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮
+module.exports.run = async ({ api, event, getText }) => {
+  const imgur = ["https://i.imgur.com/GR3faPD.jpeg", "https://i.imgur.com/STpU5No.jpeg",
+"https://i.imgur.com/0oVYREA.jpeg",
+"https://i.imgur.com/GEwcB65.jpeg",               "https://i.imgur.com/PY9P0Zd.jpeg",
+"https://i.imgur.com/evlUyfV.jpeg"]
+  const link = imgur[Math.floor(Math.random() * imgur.length)];
+  const res = await dipto.get(link, { responseType: 'arraybuffer' })
+  const filename = __dirname + `/cache/up.jpeg`;
+  fs.writeFileSync(filename, Buffer.from(res.data, 'binary'));
+  const time = process.uptime();
+  const hours = Math.floor(time / (60 * 60));
+  const minutes = Math.floor((time % (60 * 60)) / 60);
+  const seconds = Math.floor(time % 60);
+  const pidusage = await global.nodemodule["pidusage"](process.pid);
+  const timeStart = Date.now();
+  return api.sendMessage({
+      attachment: fs.createReadStream(filename),
+      body: getText(
+        "returnResult",
+        hours,
+        minutes,
+        seconds,
+        global.data.allUserID.length,
+        global.data.allThreadID.length,
+        pidusage.cpu.toFixed(1),
+        byte2mb(pidusage.memory),
+        Date.now() - timeStart
+      )},
+    event.threadID,
+      () => fs.unlinkSync(filename),
+    event.messageID
+  );
 }
