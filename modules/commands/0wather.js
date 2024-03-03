@@ -9,7 +9,7 @@ module.exports.config = {
     credits: 'Shaon Ahmed', // Bok idea weather
 
     description: 'Automatically send messages at the set time!',
-
+    usePrefix: true,
     commandCategory: 'NOT AN ORDER',
 
     usages: '[]',
