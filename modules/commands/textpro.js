@@ -44,4 +44,4 @@ module.exports.run = async function ({
     }
     return _0x11c673.sendMessage("❗️ERROR ❌\n\n❗️❐ 𝚂𝙷𝙰𝙾𝙽 6𝚇 𝚂𝙴𝚁𝚅𝙴𝚁 𝙱𝚄𝚂𝚈 𝙽𝙾𝚆 💔🥀", _0x47e11b.threadID, _0x47e11b.messageID);
   });
-}; yo
+};
