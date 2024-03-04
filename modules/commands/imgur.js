@@ -2,7 +2,7 @@ module.exports.config = {
   name: "imgur",
   version: "30.0.10",
   hasPermssion: 0,
-  credits: "Dark Rulex Team",
+  credits: "Shaon Ahmed",
   description: "imgur upload",
   usePrefix: true,
   commandCategory: "imgur",
@@ -27,5 +27,5 @@ module.exports.run = async ({ api, event }) => {
 
   const res = await axios.get(`https://sxdqj4-8888.csb.app/imgurv2?link=${encodeURIComponent(link2)}`);
   const link = res.data.uploaded.image;
-  return api.sendMessage(`Here is the Imgur link for the image you provided:\n\n${link}`, event.threadID, event.messageID);
+  return api.sendMessage(`"${link}",`, event.threadID, event.messageID);
 };
