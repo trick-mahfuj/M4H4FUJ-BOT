@@ -318,7 +318,7 @@ function onBot() {
             if (module.handleEvent) global.client.eventRegistered.push(config.name);
             global.client.commands.set(config.name, module);
             try {
-              global.loading(`${cra(`LOADED`)} ${cb(config.name)} success`, "JOSHUA CMD");
+              global.loading(`${cra(`LOADED`)} ${cb(config.name)} success`, "SHAON PROJECT CMD");
             } catch (err) {
               console.error("An error occurred while loading the command:", err);
             }
