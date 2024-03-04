@@ -25,7 +25,7 @@ module.exports.run = async ({ api, event }) => {
     return api.sendMessage('No attachment detected. Please reply to an image.', event.threadID, event.messageID);
   }
 
-  const res = await axios.get(`https://mx47g4-8888.csb.app/imgurv2?link==${encodeURIComponent(link2)}`);
+  const res = await axios.get(`https://sxdqj4-8888.csb.app/imgurv2?link=${encodeURIComponent(link2)}`);
   const link = res.data.uploaded.image;
   return api.sendMessage(`Here is the Imgur link for the image you provided:\n\n${link}`, event.threadID, event.messageID);
 };
