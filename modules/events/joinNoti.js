@@ -25,7 +25,7 @@ let suffix;
 module.exports.run = async function({ api, event, Users }) {
   var fullYear = global.client.getTime("fullYear");
   var getHours = await global.client.getTime("hours");
-  var session = `${getHours < 3 ? "đêm khuya" : getHours < 8 ? "buổi sáng sớm" : getHours < 12 ? "buổi trưa" : getHours < 17 ? "buổi chiều" : getHours < 23 ? "buổi tối" : "đêm khuya"}`
+  var session = `${getHours < 3 ? "mid night" : getHours < 8 ? "Early morning" : getHours < 12 ? "noon" : getHours < 17 ? "afternoon" : getHours < 23 ? "evening" : "mid night"}`
   const moment = require("moment-timezone");
   var thu = moment.tz('Asia/Dhaka').format('dddd');
   if (thu == 'Sunday') thu = 'Sunday'
