@@ -2,7 +2,7 @@ module.exports.config = {
   name: "awto",
   version: "1.0.0",
   hasPermission: 2,
-  credits: "Nayon",
+  credits: "Nayan",
   usePrefix: true,
   description: "Social media download",
   commandCategory: "no prefix",
