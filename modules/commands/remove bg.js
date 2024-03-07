@@ -2,7 +2,7 @@ module.exports.config = {
   name: 'removebg',
   version: '1.1.1',
   hasPermssion: 0,
-  credits: '𝙈𝙧𝙏𝙤𝙢𝙓𝙭𝙓',
+  credits: 'Shaon Ahmed',
   description: 'Edit photo',
   usePrefix: true,
   commandCategory: 'Tools',
@@ -23,6 +23,7 @@ module.exports.run = async function({
     api, event, args
 }){
     try {
+      var shaon = `🖼️=== [ REMOVING BACKGROUND ] ===🖼️`;
         if (event.type !== "message_reply") return api.sendMessage("🖼️ | You must to reply the photo you want to removed bg", event.threadID, event.messageID);
         if (!event.messageReply.attachments || event.messageReply.attachments.length == 0) return api.sendMessage("✅ | Removed Background Has Been Successfully ", event.threadID, event.messageID);
         if (event.messageReply.attachments[0].type != "photo") return api.sendMessage("❌ | This Media is not available", event.threadID, event.messageID);
@@ -50,13 +51,13 @@ module.exports.run = async function({
             .then((response) => {
                 if (response.status != 200) return console.error('Error:', response.status, response.statusText);
                 fs.writeFileSync(inputPath, response.data);
-                return api.sendMessage({ attachment: fs.createReadStream(inputPath) }, event.threadID, () => fs.unlinkSync(inputPath));
+                return api.sendMessage({body:shaon, attachment: fs.createReadStream(inputPath) }, event.threadID, () => fs.unlinkSync(inputPath));
             })
             .catch((error) => {
-                return console.error('𝙈𝙏𝙓-𝙎𝙚𝙧𝙫𝙚𝙧 𝙁𝙖𝙞𝙡:', error);
+                return console.error('❐ 𝚂𝙷𝙰𝙾𝙽 6𝚇 𝚂𝙴𝚁𝚅𝙴𝚁 𝙱𝚄𝚂𝚈 𝙽𝙾𝚆 💔🥀:', error);
             });
      } catch (e) {
         console.log(e)
-        return api.sendMessage(`Hello idol`, event.threadID, event.messageID);
+        return api.sendMessage(`❐ 𝚂𝙷𝙰𝙾𝙽 6𝚇 𝚂𝙴𝚁𝚅𝙴𝚁 𝙱𝚄𝚂𝚈 𝙽𝙾𝚆 💔🥀`, event.threadID, event.messageID);
   }
          }
