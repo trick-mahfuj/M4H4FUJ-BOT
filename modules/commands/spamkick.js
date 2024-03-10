@@ -4,7 +4,7 @@ const spamThreshold = 10;
 const spamInterval = 60000;
  
 module.exports.config = {
-  name: "spamkickorleave",
+  name: "spamkick",
   version: "1.1.0",
   hasPermission: 2,
   credits: "your name",
