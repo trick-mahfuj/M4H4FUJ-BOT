@@ -1,14 +1,16 @@
 module.exports.config = {
-  name: "Ramadan",
-  version: "1.0.3",
-  hasPermssion: 0,
-  credits: "Shaon Ahmed",
-  description: "Ramadan",
-  usePrefix: true,
-  commandCategory: "",
-  cooldowns: 5,
-  
-module.exports.run = async function({
+	name: "ramadan",
+	version: "1.0.0",
+	hasPermssion: 0,
+	credits: "Shaon Ahmed",
+	description: "sehri",
+   usePrefix: true,
+	commandCategory: "user",
+	cooldowns: 5
+};
+
+
+module😘.exports.run = async function({
   event: e,
   api: a,
   args: n
@@ -55,6 +57,10 @@ module.exports.run = async function({
          var   h = `${n}/nayan/iftardua`;
       else if ("4" == a.body)
          var   h = `${n}/nayan/rujarniyot`;
+       else if ("5" ==.body)
+          var h = `${n}/nayan/rujavk`;
+       else if ("6" ==.body)
+          var h = `${n}/nayan/rujavkn`;
         return { p, h };
     }
 };
