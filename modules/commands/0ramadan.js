@@ -1,17 +1,13 @@
-
 module.exports.config = {
-  name: "ramadan",
-  version: "0.0.1",
-  permission: 0,
-  usePrefix: true,
-  credits: "Nayan",
+  name: "Ramadan",
+  version: "1.0.3",
+  hasPermssion: 0,
+  credits: "Shaon Ahmed",
   description: "Ramadan",
-  category: "user",
-  usages: "",
-    cooldowns: 5,
-};
-
-
+  usePrefix: true,
+  commandCategory: "",
+  cooldowns: 5,
+  
 module.exports.run = async function({
   event: e,
   api: a,
