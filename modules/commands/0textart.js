@@ -401,27 +401,16 @@ function generateText(text, font) {
 }
 
 module.exports.config = {
-
-		name: "textart",
-
-		version: "1.0.0",
-
-		permission: 0,
-
-		credits: "August Quinn",
-
-		description: "An innovative text manipulation tool that lets you seamlessly transform ordinary text into captivating font forms. With Artify, you can effortlessly generate text in a plethora of eye-catching fonts, turning mundane messages into visually striking masterpieces. Embrace the artistic charm of ASCII text arts as Artify empowers you to craft intricate and captivating designs that stand out in any digital space. Unlock the limitless possibilities of creative expression with this versatile tool, where typography meets art to breathe life into your words. Express yourself like never before with Artify, the ultimate fusion of font generation and ASCII art creation.",
-
-		category: "Graphic",
-
-		usage: " [fontname | textartname] [text]",
-
-	  prefix: 'awto',
-
-		cooldowns: 5
-
+  'name': "textart",
+  'version': "1.0.0",
+  'hasPermssion': 0x0,
+  'credits': "SHAON",
+  'description': "An innovative text manipulation tool that lets you seamlessly transform ordinary text into captivating font forms. With Artify, you can effortlessly generate text in a plethora of eye-catching fonts, turning mundane messages into visually striking masterpieces. Embrace the artistic charm of ASCII text arts as Artify empowers you to craft intricate and captivating designs that stand out in any digital space. Unlock the limitless possibilities of creative expression with this versatile tool, where typography meets art to breathe life into your words. Express yourself like never before with Artify, the ultimate fusion of font generation and ASCII art creation.",
+   usePrefix: true,
+  'commandCategory': "text edit",
+  'usages': "textart <text>",
+  'cooldowns': 0xa
 };
-
 module.exports.run = async ({ event, api, args }) => {
 
 		const command = args[0]?.toLowerCase();
