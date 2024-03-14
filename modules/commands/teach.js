@@ -28,7 +28,7 @@ module.exports.config = {
       const ans = msg[1].trim();
 
 
-      const img = `https://shaon-all-api-07mo.onrender.com//sim?type=teach&ask=${ask}&ans=${ans}`
+      const img = `https://zctdmg-8888.csb.app/sim?type=teach&ask=${ask}&ans=${ans}`
 
       try {
         const response = await axios.get(img);
