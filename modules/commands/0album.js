@@ -42,7 +42,7 @@ module.exports.config = {
       responseType: "stream"
     })).data;
     return e.sendMessage({
-      body: `🟡${shaon}\nVideo Number:${ls}\nA P I  S H A O N📛`,
+      body: `🟡${shaon}\n𝚃𝙾𝚃𝙰𝙻 𝚅𝙸𝙳𝙴𝙾:${ls}\n𝙰 𝙿 𝙸  𝚂 𝙷 𝙰 𝙾 𝙽📛`,
       attachment: t
     }, a.threadID, a.messageID)
   }
