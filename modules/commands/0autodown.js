@@ -27,7 +27,7 @@ if (shaon.startsWith('https://vt.tiktok.com') ||
     return;
     }
     const path = __dirname + `/cache/shaonn.mp4`;
-    const aa = await axios.get(`https://d1pt0-all.onrender.com/xnxx?url=${encodeURI(shaon)}`);
+    const aa = await axios.get(`https://noobs-apihouse.onrender.com/dipto/aldl?url=${encodeURI(shaon)}`);
   const bb = aa.data.result;
   const shortUrl = await tinyurl.shorten(bb);
     const messageBody = `✅ 🔗 Download Url: ${shortUrl}`;
