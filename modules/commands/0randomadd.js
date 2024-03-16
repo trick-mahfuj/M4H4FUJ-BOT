@@ -1,4 +1,5 @@
-module.exports.config = {
+const axios = require('axios')
+  module.exports.config = {
   name: "add",
   version: "11.9.7",
   hasPermssion: 0,
