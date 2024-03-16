@@ -9,23 +9,28 @@ module.exports.config = {
   usages: "random",
   cooldowns: 30,
 };
-exports.run= async ({api, event, args}) =>{
-try {
-const query = args.join(" ") || random;
-    const res = await axios.get(`https://gmh8mf-3000.csb.app/random?video=${query}`);
-    const imgUrl = res.data.url;
-    const ex = path.extname(imgUrl);
-    const imgRes = await axios.get(imgUrl, { responseType: 'arraybuffer' });
-    const filename = __dirname + `/cache/shaon2${ex}`;
-    fs.writeFileSync(filename, Buffer.from(imgRes.data, 'binary'));
-    api.sendMessage({
-        body: `😘random video🥰`,
-        attachment: fs.createReadStream(filename),
-      },
-      event.threadID,
-      () => fs.unlinkSync(filename), event.messageID);
-  } catch (error) {
-    api.sendMessage('An error occurred while fetching the media.', event.threadID, event.messageID);
-  }
-  }
-};
+module.exports.run = async function({ api, event, args }) {
+    const axios = require("axios")
+    const request = require("request")
+    const fs = require("fs-extra")
+
+    const res = await axios.get(`https://gmh8mf-3000.csb.app/random?video=random`);
+    var data = res.data.url;
+    var msg = [];
+
+    let videos = (await axios.get(`${data}`, {
+        responseType: 'arraybuffer'
+    })).data;
+    fs.writeFileSync(__dirname + "/cache/video.mp4", Buffer.from(videos, "utf-8"));
+    var allimage = [];
+    allimage.push(fs.createReadStream(__dirname + "/cache/video.mp4"));
+
+    {
+        msg += `😘Random Video🥰`
+    }
+
+    return api.sendMessage({
+        body: msg,
+        attachment: allimage
+    }, event.threadID, event.messageID);
+}
