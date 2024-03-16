@@ -1,4 +1,6 @@
 const axios = require('axios')
+const path = require('path')
+const fs = require('fs')
   module.exports.config = {
   name: "add",
   version: "11.9.7",
