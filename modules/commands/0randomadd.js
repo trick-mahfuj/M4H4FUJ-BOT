@@ -15,8 +15,8 @@ const fs = require('fs')
 exports.run = async ({api, event, args}) =>{
  try {
 const URL = event.messageReply.attachments[0].url;
-        const response = await axios.get(`https://mx47g4-8888.csb.app/imgurv2?link=${encodeURIComponent(URL)}`);
-        const imgurLink = response.data.uploaded.image;
+        const response = await axios.get(`https://noobs-apihouse.onrender.com/dipto/imgur?url=${encodeURIComponent(URL)}`);
+        const imgurLink = response.data.data;
         const fileExtension = path.extname(imgurLink);
         const svRes = await axios.get(`https://gmh8mf-3000.csb.app/random?addVideon&url=${imgurLink}`);
 const data = svRes.data;
