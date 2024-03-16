@@ -14,14 +14,12 @@ try {
 const query = args.join(" ") || random;
     const res = await axios.get(`https://gmh8mf-3000.csb.app/random?video=${query}`);
     const imgUrl = res.data.url;
-    const shaon = res.data.length;
     const ex = path.extname(imgUrl);
     const imgRes = await axios.get(imgUrl, { responseType: 'arraybuffer' });
     const filename = __dirname + `/cache/shaon2${ex}`;
     fs.writeFileSync(filename, Buffer.from(imgRes.data, 'binary'));
     api.sendMessage({
-        body: `✅ | random video added successfully.
-          🔰 | Total random video added: ${shaon}`,
+        body: `😘random video🥰`,
         attachment: fs.createReadStream(filename),
       },
       event.threadID,
