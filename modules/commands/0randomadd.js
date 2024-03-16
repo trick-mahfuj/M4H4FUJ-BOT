@@ -18,13 +18,6 @@ const URL = event.messageReply.attachments[0].url;
         const response = await axios.get(`https://mx47g4-8888.csb.app/imgurv2?link=${encodeURIComponent(URL)}`);
         const imgurLink = response.data.uploaded.image;
         const fileExtension = path.extname(imgurLink);
-   let query2;
-        if (fileExtension === '.jpg' || fileExtension === '.jpeg' || fileExtension === '.png') {query2 = 'addPhoto';} 
-else if (fileExtension === '.mp4') {
-  query2 = query;} else {
-            api.sendMessage('Invalid file format.', event.threadID, event.messageID);
-            return;
-        }
         const svRes = await axios.get(`https://gmh8mf-3000.csb.app/random?addVideon&url=${imgurLink}`);
 const data = svRes.data;
      //   console.log(data);
