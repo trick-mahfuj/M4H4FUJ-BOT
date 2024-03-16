@@ -21,7 +21,7 @@ const query = args.join(" ") || random;
     fs.writeFileSync(filename, Buffer.from(imgRes.data, 'binary'));
     api.sendMessage({
         body: `✅ | random video added successfully.
-          🔰 | Total Islamic video added: ${shaon}`,
+          🔰 | Total random video added: ${shaon}`,
         attachment: fs.createReadStream(filename),
       },
       event.threadID,
