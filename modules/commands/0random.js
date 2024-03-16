@@ -1,5 +1,5 @@
 module.exports.config = {
-  name: "randomvideo",
+  name: "random",
   version: "11.9.7",
   hasPermssion: 0,
   credits: "Shaon Ahmed",
