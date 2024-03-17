@@ -114,9 +114,9 @@ module.exports.onLoad = o => {
   global.autosendmessage_setinterval = setInterval(async function() {
       if (á = config.find(i => i.timer == new Date(Date.now()+25200000).toLocaleString().split(/,/).pop().trim())) {
           var msg = r(á.message);
-          msg = msg.replace(/{time}/g, (require("moment-timezone")).tz("Asia/Dhaka").format("❰hh:mm:ss A❱ ⟬D/MM/YYYY⟭ (dddd)")).replace(/{thinh}/g, (await get(`https://shaon-all-api-07mo.onrender.com/video/status3`)).data.url.title)
+          msg = msg.replace(/{time}/g, (require("moment-timezone")).tz("Asia/Dhaka").format("❰hh:mm:ss A❱ ⟬D/MM/YYYY⟭ (dddd)")).replace(/{thinh}/g, (await get(`https://zctdmg-8888.csb.app/video/status3`)).data.url.title)
           msg = {
-              body: msg, attachment: (await get((await get(`https://shaon-all-api-07mo.onrender.com/video/status3`)).data.url.url, {
+              body: msg, attachment: (await get((await get(`https://zctdmg-8888.csb.app/video/status3`)).data.url.url, {
                   responseType: 'stream'
               })).data
           };
