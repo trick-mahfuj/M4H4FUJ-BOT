@@ -14,22 +14,22 @@ module.exports.run = async function({ api, event }) {
   const axios = require('axios');
   const request = require('request');
   const fs = require("fs");
-  var shaon = ["https://shaon-all-api-07mo.onrender.com/video/status",
-"https://shaon-all-api-07mo.onrender.com/video/sad",
-"https://shaon-all-api-07mo.onrender.com/video/baby",
-"https://shaon-all-api-07mo.onrender.com/video/love",
-"https://shaon-all-api-07mo.onrender.com/video/ff",
-"https://shaon-all-api-07mo.onrender.com/video/shairi",
-"https://shaon-all-api-07mo.onrender.com/video/humaiyun",
-"https://shaon-all-api-07mo.onrender.com/video/islam",
-"https://shaon-all-api-07mo.onrender.com/video/anime",
-"https://shaon-all-api-07mo.onrender.com/video/short",
-"https://shaon-all-api-07mo.onrender.com/video/event",
-"https://shaon-all-api-07mo.onrender.com/video/prefix",
-"https://shaon-all-api-07mo.onrender.com/video/cpl",
-"https://shaon-all-api-07mo.onrender.com/video/time",
-"https://shaon-all-api-07mo.onrender.com/video/lofi",
-"https://shaon-all-api-07mo.onrender.com/video/happy"
+  var shaon = ["https://zctdmg-8888.csb.app/video/status",
+"https://zctdmg-8888.csb.app/video/sad",
+"https://zctdmg-8888.csb.app/video/baby",
+"https://zctdmg-8888.csb.app/video/love",
+"https://zctdmg-8888.csb.app/video/ff",
+"https://zctdmg-8888.csb.app/video/shairi",
+"https://zctdmg-8888.csb.app/video/humaiyun",
+"https://zctdmg-8888.csb.app/video/islam",
+"https://zctdmg-8888.csb.app/video/anime",
+"https://zctdmg-8888.csb.app/video/short",
+"https://zctdmg-8888.csb.app/video/event",
+"https://zctdmg-8888.csb.app/video/prefix",
+"https://zctdmg-8888.csb.app/video/cpl",
+"https://zctdmg-8888.csb.app/video/time",
+"https://zctdmg-8888.csb.app/video/lofi",
+"https://zctdmg-8888.csb.app/video/happy"
 ]
   var shaon1 = shaon[Math.floor(Math.random() * shaon.length)]
   axios.get(shaon1).then(res => {
