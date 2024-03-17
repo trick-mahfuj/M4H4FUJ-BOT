@@ -16,7 +16,6 @@ module.exports.config = {
 
 module.exports.run = async function({ api, event, args }) {
 	try {
-	   var shaon = `VOICE//API SHAON`;
 		const { createReadStream, unlinkSync } = global.nodemodule["fs-extra"];
 		const { resolve } = global.nodemodule["path"];
 		var content = (event.type == "message_reply") ? event.messageReply.body : args.join(" ");
@@ -24,6 +23,6 @@ module.exports.run = async function({ api, event, args }) {
 		var msg = (languageToSay != global.config.language) ? content.slice(3, content.length) : content;
 		const path = resolve(__dirname, 'cache', `${event.threadID}_${event.senderID}.mp3`);
 		await global.utils.downloadFile(`https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(msg)}&tl=bn&client=tw-ob`, path);
-		return api.sendMessage({body:shaon, attachment: createReadStream(path)}, event.threadID, () => unlinkSync(path));
+		return api.sendMessage({attachment: createReadStream(path)}, event.threadID, () => unlinkSync(path));
 	} catch (e) { return console.log(e) };
 }
