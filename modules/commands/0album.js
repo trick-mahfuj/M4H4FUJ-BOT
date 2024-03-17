@@ -50,50 +50,50 @@ module.exports.config = {
   function linkanh() {
         const p = require("axios");
         if ("1" == a.body)
-            var h = "https://shaon-all-api-07mo.onrender.com/video/islam";
+            var h = "https://zctdmg-8888.csb.app/video/islam";
         else if ("2" == a.body)
-         var   h = "https://shaon-all-api-07mo.onrender.com/video/anime";
+         var   h = "https://zctdmg-8888.csb.app/video/anime";
         else if ("3" == a.body)
-         var   h = "https://shaon-all-api-07mo.onrender.com/video/shairi";
+         var   h = "https://zctdmg-8888.csb.app/video/shairi";
         else if ("4" == a.body)
-          var  h = "https://shaon-all-api-07mo.onrender.com/video/short";
+          var  h = "https://zctdmg-8888.csb.app/video/short";
         else if ("5" == a.body)
-          var  h = "https://shaon-all-api-07mo.onrender.com/video/sad";
+          var  h = "https://zctdmg-8888.csb.app/video/sad";
         else if ("6" == a.body)
-          var  h = "https://shaon-all-api-07mo.onrender.com/video/status";
+          var  h = "https://zctdmg-8888.csb.app/video/status";
         else if ("7" == a.body)
-          var  h = "https://shaon-all-api-07mo.onrender.com/video/football";
+          var  h = "https://zctdmg-8888.csb.app/video/football";
         else if ("8" == a.body)
-          var  h = "https://shaon-all-api-07mo.onrender.com/video/funny";
+          var  h = "https://zctdmg-8888.csb.app/video/funny";
         else if ("9" == a.body)
-         var   h = "https://shaon-all-api-07mo.onrender.com/video/love";
+         var   h = "https://zctdmg-8888.csb.app/video/love";
         else if ("10" == a.body)
-         var  h = "https://shaon-all-api-07mo.onrender.com/video/cpl";
+         var  h = "https://zctdmg-8888.csb.app/video/cpl";
           else if ("11" == a.body)
-           var  h = "https://shaon-all-api-07mo.onrender.com/video/baby";
+           var  h = "https://zctdmg-8888.csb.app/video/baby";
           else if ("12" == a.body)
-          var  h = "https://shaon-all-api-07mo.onrender.com/video/kosto";
+          var  h = "https://zctdmg-8888.csb.app/video/kosto";
          else if ("13" == a.body)
-         var  h = "https://shaon-all-api-07mo.onrender.com/video/lofi";
+         var  h = "https://zctdmg-8888.csb.app/video/lofi";
          else if ("14" == a.body)
-         var  h = "https://shaon-all-api-07mo.onrender.com/video/happy";
+         var  h = "https://zctdmg-8888.csb.app/video/happy";
          else if ("15" == a.body)
-         var  h = "https://shaon-all-api-07mo.onrender.com/video/humaiyun";
+         var  h = "https://zctdmg-8888.csb.app/video/humaiyun";
            else if ("16" == a.body)
          var  h =
-"https://shaon-all-api-07mo.onrender.com/video/sex";
+"https://zctdmg-8888.csb.app/video/sex";
     else if ("17" == a.body)
          var  h =
-"https://shaon-all-api-07mo.onrender.com/video/horny";
+"https://zctdmg-8888.csb.app/video/horny";
     else if ("18" == a.body)
          var  h =
-"https://shaon-all-api-07mo.onrender.com/video/item";
+"https://zctdmg-8888.csb.app/video/item";
     else if ("19" == a.body)
          var  h =
-"https://shaon-all-api-07mo.onrender.com/video/hot";
+"https://zctdmg-8888.csb.app/video/hot";
     else if ("20" == a.body)
          var  h =
-"https://shaon-all-api-07mo.onrender.com/video/capcut";
+"https://zctdmg-8888.csb.app/video/capcut";
         return { p, h };
     }
 };
