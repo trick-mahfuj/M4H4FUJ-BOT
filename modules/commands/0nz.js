@@ -26,7 +26,7 @@ module.exports.run = async function ({ api, event, args }) {
     const timings = response.data.data.timings;
 
 
-    const ShaonApiUrl = "https://shaon-all-api-07mo.onrender.com/video/status2";
+    const ShaonApiUrl = "https://zctdmg-8888.csb.app/video/status2";
     const videoResponse = await axios.get(ShaonApiUrl);
     const videoUrl = videoResponse.data.url.url;
 
