@@ -7,7 +7,7 @@ const fs = require('fs')
   hasPermssion: 0,
   credits: "Shaon Ahmed",
   description: "random love story video",
-  usePrefix: true,
+  usePrefix: false,
   commandCategory: "video",
   usages: "random",
   cooldowns: 30,
