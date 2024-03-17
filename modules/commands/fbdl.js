@@ -20,7 +20,7 @@ try {
         const path = __dirname+`/cache/12mp3`;
  let getPorn = (await axios.get(event.attachments[0].playableUrl,{ responseType:'arraybuffer'} )).data;
   fs.writeFileSync(path, Buffer.from(getPorn, "utf-8"));
-return api.sendMessage({body : `𝐋𝐨𝐚𝐝𝐢𝐧𝐠 𝐓𝐡𝐚̀𝐧𝐡 𝐂𝐨̂𝐧𝐠 🎀`, 
+return api.sendMessage({body : `𝐋𝐨𝐚𝐝𝐢𝐧𝐠 🎀`, 
     attachment: fs.createReadStream(path)}, event.threadID, () => fs.unlinkSync(path),event.messageID);
     }; 
   }catch {return api.sendMessage(`Unable to process the request`,event.threadID,event.messageID)}
