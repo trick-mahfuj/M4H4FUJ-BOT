@@ -38,7 +38,7 @@ module.exports.run = async({api,event,args,Users}) => {
 
     };
 
-if (args[0] == "") { 
+if (args[0] == "user") { 
   if(!args[1]){
   if(event.type == "message_reply") id = event.messageReply.senderID
   else id = event.senderID;
