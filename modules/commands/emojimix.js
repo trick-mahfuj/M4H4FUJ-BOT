@@ -25,7 +25,7 @@ if (!args[0])
   return api.sendMessage("Wrong format!\nUse "+global.config.PREFIX+this.config.name+" "+this.config.usages, event.threadID, event.messageID);
 
  var callback = () => api.sendMessage({body:``,attachment: fs.createReadStream(__dirname + "/cache/biden.png")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/biden.png"),event.messageID);
- return request(encodeURI(`https://nayan-server.onrender.com/nayan/emojimix?emoji1=${emoji1}&emoji2=${emoji2}`)).pipe(fs.createWriteStream(__dirname+'/cache/biden.png')).on('close',() => callback()); 
+ return request(encodeURI(`http://nl2-3.deploy.sbs:2011/nayan/emojimix?emoji1=${emoji1}&emoji2=${emoji2}`)).pipe(fs.createWriteStream(__dirname+'/cache/biden.png')).on('close',() => callback()); 
 } catch (err){
 return api.sendMessage("Can't mix "+emoji1+" and "+emoji2, event.threadID, event.messageID)
 }   
