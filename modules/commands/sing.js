@@ -8,7 +8,7 @@ const config = {
      name: "song",
      version: "1.0.0",
      hasPermssion: 0,
-     credits: "Yan Maglinte",
+     credits: "Shaon Ahmed",
      description: "Play music via YouTube link or search keyword",
      usePrefix: true,
      commandCategory: "Means",
@@ -84,7 +84,7 @@ const run = async function ({ api, event, args }) {
          }
      } else {
          try {
-             const data = (await Youtube.GetListByKeyword(keywordSearch, false, 6))?.items ?? [];
+             const data = (await Youtube.GetListByKeyword(keywordSearch, false, 10))?.items ?? [];
              const link = data.map(value => value?.id);
              const thumbnails = [];
 
