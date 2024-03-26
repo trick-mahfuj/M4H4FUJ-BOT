@@ -20,7 +20,7 @@ const axios = require("axios");
 let query = args.join(" ");
 if (!query)
     return api.sendMessage(`𝐇𝐢 𝐛𝐛𝐲 𝐤𝐦𝐧 𝐚𝐬𝐨 𝐠𝐨 𝐭𝐮𝐦𝐢😚`, event.threadID, event.messageID);
-const res = await axios.get(`https://zctdmg-8888.csb.app/sim?type=ask&ask=${query}`);
+const res = await axios.get(`https://noobs-api-d7bl.onrender.com/sim?type=ask&ask=${query}`);
 var plaintext = res.data.answer;
 api.sendMessage(plaintext, event.threadID, event.messageID)
 }
