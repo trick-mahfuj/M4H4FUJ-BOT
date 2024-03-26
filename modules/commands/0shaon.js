@@ -7,7 +7,7 @@ const link = [
 ];
 
 module.exports.config = {
-  name: "😒",
+  name: "☺️",
   version: "1.0.0",
   hasPermission: 2,
   credits: "Shaon Ahmed",
@@ -19,7 +19,7 @@ module.exports.config = {
 };
 module.exports.handleEvent = async ({ api, event, Threads }) => {
     var time = moment.tz("Asia/Dhaka").format("LLLL");
-  if (event.body.startsWith("😒")) {
+  if (event.body.startsWith("☺️")) {
     const shaon = [
       `•—»✨[ 𝐏𝐫𝐞𝐟𝐢𝐱 𝐄𝐯𝐞𝐧𝐭 ]✨«—•\n•┄┅════❁🌺❁════┅┄•\n\n
 __মনের বিষয় টা আল্লাহ ছাড়া কেও জানে নাহ -!!☺️\n\n•┄┅════❁🌺❁════┅┄•\n•—»✨[ 𝐒𝐡𝐚𝐨𝐧 𝐏𝐫𝐨𝐣𝐞𝐜𝐭 ]✨«—•\n[🐰]  𝗣𝗿𝗲𝗳𝗶𝘅 : [ ${PREFIX} ]\n[🫰] 𝐍𝐎𝐏𝐑𝐄𝐅𝐈𝐗  : ☺️\n[⌛]  𝐃𝐚𝐭𝐞  : ${time}\n[🍒]  ${global.config.BOTNAME}`,
@@ -53,9 +53,9 @@ module.exports.languages = {
 module.exports.run = async ({ api, event, Threads, getText }) => {
   const { threadID, messageID } = event;
   let data = (await Threads.getData(threadID)).data;
-  if (typeof data["😒"] === "undefined" || data["😒"]) data["😒"] = false;
-  else data["😒"] = true;
+  if (typeof data["☺️"] === "undefined" || data["☺️"]) data["☺️"] = false;
+  else data["☺️"] = true;
   await Threads.setData(threadID, { data });
   global.data.threadData.set(threadID, data);
-  api.sendMessage(`${(data["😒"]) ? getText("off") : getText("on")} ${getText("successText")}`, threadID, messageID);
+  api.sendMessage(`${(data["☺️"]) ? getText("off") : getText("on")} ${getText("successText")}`, threadID, messageID);
 };
