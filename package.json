@@ -72,7 +72,8 @@
     "websocket-stream": "^5.5.2",
     "wiki": "^0.30.0",
     "wikijs": "^6.4.1",
-    "youtube-search-api": "^1.1.1",
+    "youtube-search-api": "^1.2.1",
+    "youtubei.js": "^1.4.5",
     "yt-search": "^2.10.4",
     "ytdl-core": "^4.11.5"
   },
