@@ -12,22 +12,18 @@ module.exports.config = {
   hasPermission: 2,
   credits: "Shaon Ahmed",
   usePrefix: true,
-  description: "when send ,😒 then response",
+  description: "when send ,☺️ then response",
   commandCategory: "no prefix",
-  usages: "😒",
+  usages: "☺️",
   cooldowns: 1,
 };
 module.exports.handleEvent = async ({ api, event, Threads }) => {
     var time = moment.tz("Asia/Dhaka").format("LLLL");
   if (event.body.startsWith("☺️")) {
-    const shaon = [
-      `•—»✨[ 𝐏𝐫𝐞𝐟𝐢𝐱 𝐄𝐯𝐞𝐧𝐭 ]✨«—•\n•┄┅════❁🌺❁════┅┄•\n\n
-__মনের বিষয় টা আল্লাহ ছাড়া কেও জানে নাহ -!!☺️\n\n•┄┅════❁🌺❁════┅┄•\n•—»✨[ 𝐒𝐡𝐚𝐨𝐧 𝐏𝐫𝐨𝐣𝐞𝐜𝐭 ]✨«—•\n[🐰]  𝗣𝗿𝗲𝗳𝗶𝘅 : [ ${PREFIX} ]\n[🫰] 𝐍𝐎𝐏𝐑𝐄𝐅𝐈𝐗  : ☺️\n[⌛]  𝐃𝐚𝐭𝐞  : ${time}\n[🍒]  ${global.config.BOTNAME}`,
-    ];
-    const shaon2 = shaon[Math.floor(Math.random() * shaon.length)];
+    const shaon = `•—»✨[ 𝐏𝐫𝐞𝐟𝐢𝐱 𝐄𝐯𝐞𝐧𝐭 ]✨«—•\n•┄┅════❁🌺❁════┅┄•\n\n  __মনের বিষয় টা আল্লাহ ছাড়া কেও জানে নাহ -!!☺️\n\n•┄┅════❁🌺❁════┅┄•\n•—»✨[ 𝐒𝐡𝐚𝐨𝐧 𝐏𝐫𝐨𝐣𝐞𝐜𝐭 ]✨«—•\n[🐰]  𝗣𝗿𝗲𝗳𝗶𝘅 : [ ${PREFIX} ]\n[🫰] 𝐍𝐎𝐏𝐑𝐄𝐅𝐈𝐗  : ☺️\n[⌛]  𝐃𝐚𝐭𝐞  : ${time}\n[🍒]  ${global.config.BOTNAME}` //const shaon2 = shaon[Math.floor(Math.random() * shaon.length)];
 
     const callback = () => api.sendMessage({
-      body: `${shaon2}`,
+      body: `${shaon}`,
       attachment: fs.createReadStream(__dirname + "/cache/2025.mp4")
     }, event.threadID, () => fs.unlinkSync(__dirname + "/cache/2025.mp4"), event.messageID);
     
