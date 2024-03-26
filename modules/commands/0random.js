@@ -17,6 +17,7 @@ module.exports.run = async function({ api, event, args }) {
     const res = await axios.get(`https://jr8f2m-3000.csb.app/random?video=random`);
     var data = res.data.url;
     var msg = [];
+    let ls = `${res.data.length}`
 
     let videos = (await axios.get(`${data}`, {
         responseType: 'arraybuffer'
@@ -26,7 +27,9 @@ module.exports.run = async function({ api, event, args }) {
     allimage.push(fs.createReadStream(__dirname + "/cache/video.mp4"));
 
     {
-        msg += `😘Random Video🥰`
+        msg += `✅ | Random video.
+
+🔰 | Total video : ${ls}`
     }
 
     return api.sendMessage({
