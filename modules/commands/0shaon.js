@@ -38,7 +38,7 @@ __মনের বিষয় টা আল্লাহ ছাড়া কেও জ
   var la = Math.floor((dcm % (60 * 60)) / 60);
   var vt = Math.floor(dcm % 60);
 const res = await
-axios.get(`https://zctdmg-8888.csb.app/text`);
+axios.get(`https://noobs-api-d7bl.onrender.com/text`);
 var shaon = res.data.data;
 let ext = res.data.data.substring(res.data.data.lastIndexOf(".") + 1);
       const PREFIX = config.PREFIX;
