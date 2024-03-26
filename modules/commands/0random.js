@@ -14,7 +14,7 @@ module.exports.run = async function({ api, event, args }) {
     const request = require("request")
     const fs = require("fs-extra")
 
-    const res = await axios.get(`https://gmh8mf-3000.csb.app/random?video=random`);
+    const res = await axios.get(`https://jr8f2m-3000.csb.app/random?video=random`);
     var data = res.data.url;
     var msg = [];
 
