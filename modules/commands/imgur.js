@@ -15,8 +15,8 @@ module.exports.config = {
 
 module.exports.run = async ({ api, event, args }) => {
     const axios = global.nodemodule['axios'];
-  const apis = await axios.get('https://mx47g4-8888.csb.app')
-  const n = apis.data
+  const apis = await axios.get('')
+  const n = apis.data.api
     const linkanh = event.messageReply.attachments[0].url || args.join(" ");
     if (!linkanh)
         return api.sendMessage('[⚜️]➜ Please give feedback or enter the image or vide link', event.threadID, event.messageID);
