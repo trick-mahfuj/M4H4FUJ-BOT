@@ -13,19 +13,19 @@ module.exports.config = {
   }
 };
 
-module.exports.run = async ({ api, event }) => {
-  const axios = global.nodemodule['axios'];
-  let link2;
-
-  if (event.type === "message_reply" && event.messageReply.attachments.length > 0) {
-    link2 = event.messageReply.attachments[0].url;
-  } else if (event.attachments.length > 0) {
-    link2 = event.attachments[0].url;
-  } else {
-    return api.sendMessage('No attachment detected. Please reply to an image.', event.threadID, event.messageID);
-  }
-
-  const res = await axios.get(`https://sxdqj4-8888.csb.app/imgurv2?link=${encodeURIComponent(link2)}`);
-  const link = res.data.uploaded.image;
-  return api.sendMessage(`"${link}",`, event.threadID, event.messageID);
+module.exports.run = async ({ api, event, args }) => {
+    const axios = global.nodemodule['axios'];
+  const apis = await axios.get('https://mx47g4-8888.csb.app')
+  const n = apis.data
+    const linkanh = event.messageReply.attachments[0].url || args.join(" ");
+    if (!linkanh)
+        return api.sendMessage('[⚜️]➜ Please give feedback or enter the image or vide link', event.threadID, event.messageID);
+    try {
+      var tpk = `",`;
+        const allPromise = (await Promise.all(event.messageReply.attachments.map(item => axios.get(`${n}imgurv2?link=${encodeURIComponent(item.url)}`)))).map(item => item.data.uploaded.image);
+        return api.sendMessage(`"` + allPromise.join('"\n"') + tpk, event.threadID, event.messageID);
+    }
+    catch (e) {
+        return api.sendMessage('[⚜️]➜ An error occurred while executing the command', event.threadID, event.messageID);
+    }
 };
