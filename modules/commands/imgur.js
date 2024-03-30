@@ -15,7 +15,7 @@ module.exports.config = {
 
 module.exports.run = async ({ api, event, args }) => {
     const axios = global.nodemodule['axios'];
-  const apis = await axios.get('')
+  const apis = await axios.get('https://raw.githubusercontent.com/shaonproject/Api/main/api.json')
   const n = apis.data.api
     const linkanh = event.messageReply.attachments[0].url || args.join(" ");
     if (!linkanh)
