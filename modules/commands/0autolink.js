@@ -31,7 +31,7 @@ async function infoPostTT(_0x515388) {
   return _0x32200a.data.data;
 }
 async function infoPostFb(_0x5e3319) {
-  const _0x34f19b = await axios.get("https://tools-fb.miraiprofile2005.repl.co/?url=" + _0x5e3319);
+  const _0x34f19b = await axios.get("https://all-api-ius8.onrender.com/fbdl?url=" + _0x5e3319);
   return _0x34f19b.data;
 }
 exports.handleEvent = async function (_0x387f6e) {
