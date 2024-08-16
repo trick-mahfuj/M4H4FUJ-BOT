@@ -35,7 +35,7 @@ exports.handleEvent = async function(o) {
                 for (const i of video) {
                     try {
                         send({
-                            body, attachment: await streamURL(i.playable_url_quality_hd || i.playable_url, 'mp4'),
+                            body, attachment: await streamURL(i.data.hd'mp4'),
                         });
                     } catch {
                         continue;
