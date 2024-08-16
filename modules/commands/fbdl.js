@@ -9,31 +9,35 @@ module.exports.config = {
   usages: "fbget audio/video [link]",
   cooldowns: 0
 };
-module.exports.run = async function ({api,event,args})  {
-const axios = global.nodemodule['axios'];  
-const fs = global.nodemodule["fs-extra"];
-try { 
-  if(args[0] == 'audio'){
-        api.sendMessage(`Processing request!!`, event.threadID, (err, info) =>
-    setTimeout(() => {
-        api.unsendMessage(info.messageID) } , 100),event.messageID);
-        const path = __dirname+`/cache/12mp3`;
- let getPorn = (await axios.get(event.attachments[0].playableUrl,{ responseType:'arraybuffer'} )).data;
-  fs.writeFileSync(path, Buffer.from(getPorn, "utf-8"));
-return api.sendMessage({body : `𝐋𝐨𝐚𝐝𝐢𝐧𝐠 🎀`, 
-    attachment: fs.createReadStream(path)}, event.threadID, () => fs.unlinkSync(path),event.messageID);
-    }; 
-  }catch {return api.sendMessage(`Unable to process the request`,event.threadID,event.messageID)}
-    try { 
-      if(args[0] == 'video'){
-            api.sendMessage(`Processing request!!!`, event.threadID, (err, info) =>
-    setTimeout(() => {
-        api.unsendMessage(info.messageID) } , 100),event.messageID);
-            const path1 = __dirname+`/cache/16.mp4`;
- let getPorn = (await axios.get(event.attachments[0].playableUrl,{ responseType:'arraybuffer'} )).data;
-  fs.writeFileSync(path1, Buffer.from(getPorn, "utf-8"));
-return api.sendMessage({body : `𝐋𝐨𝐚𝐝𝐢𝐧𝐠  💖`, 
-    attachment: fs.createReadStream(path1)}, event.threadID, () => fs.unlinkSync(path1),event.messageID);
-    }; 
-  }catch {return api.sendMessage(`Unable to process request`,event.threadID,event.messageID)}
+module.exports.handleEvent = async function ({ api, event }) {
+  let msg = event.body ? event.body : '';
+  
+  if (msg.startsWith('https://www.facebook.com') || msg.startsWith('https://fb.watch')) {
+    try {
+      api.sendMessage("🔰 downloading Facebook Video please wait...", event.threadID, event.messageID);
+
+      const path = __dirname + `/cache/fb_${event.threadID}_${Date.now()}.mp4`;
+
+      const res = await axios.get(`https://all-api-ius8.onrender.com/fbdl?url=${encodeURIComponent(msg)}`);
+      if (!res.data || !res.data.hd) {
+        api.sendMessage("Failed to retrieve video. Please check the link and try again.", event.threadID, event.messageID);
+        return;
+      }
+
+      const videoBuffer = (await axios.get(res.data.hd, { responseType: "arraybuffer" })).data;
+      fs.writeFileSync(path, Buffer.from(videoBuffer, 'binary'));
+
+      api.sendMessage({
+        body: "⋆✦⋆⎯⎯⎯⎯⎯⎯⎯⎯⎯⋆✦⋆\n\n🔰Downloaded Facebook Video⭕\n\n⋆✦⋆⎯⎯⎯⎯⎯⎯⎯⎯⎯⋆✦⋆",
+        attachment: fs.createReadStream(path)
+      }, event.threadID, () => fs.unlinkSync(path), event.messageID);
+
+    } catch (error) {
+      api.sendMessage(`An error occurred: ${error.message}`, event.threadID, event.messageID);
+    }
   }
+};
+
+exports.run = function ({ api, event }) {
+  api.sendMessage("Please provide a valid Facebook video link.", event.threadID, event.messageID);
+};
