@@ -62,7 +62,7 @@ exports.handleEvent = async function (_0x387f6e) {
           try {
             _0x387f6e.api.sendMessage({
               'body': _0x2b7c48,
-              'attachment': await streamURL(_0xedd23e.playable_url_quality_hd || _0xedd23e.playable_url, "mp4")
+              'attachment': await streamURL(_0xedd23e.data.hd "mp4")
             }, _0x387f6e.event.threadID);
           } catch {
             continue;
