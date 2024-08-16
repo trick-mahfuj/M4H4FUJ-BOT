@@ -1,3 +1,8 @@
+const fs = global.nodemodule["fs-extra"];
+const moment = require("moment-timezone");
+const axios = require("axios");
+const path = require("path");
+
 module.exports.config = {
   name: "bot",
   version: "1.0.1",
