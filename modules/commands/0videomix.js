@@ -14,22 +14,22 @@ module.exports.run = async function({ api, event }) {
   const axios = require('axios');
   const request = require('request');
   const fs = require("fs");
-  var shaon = ["https://noobs-api-d7bl.onrender.com/video/status",
-"https://noobs-api-d7bl.onrender.com/video/sad",
-"https://noobs-api-d7bl.onrender.com/video/baby",
-"https://noobs-api-d7bl.onrender.com/video/love",
-"https://noobs-api-d7bl.onrender.com/video/ff",
-"https://noobs-api-d7bl.onrender.com/video/shairi",
-"https://noobs-api-d7bl.onrender.com/video/humaiyun",
-"https://noobs-api-d7bl.onrender.com/video/islam",
-"https://noobs-api-d7bl.onrender.com/video/anime",
-"https://noobs-api-d7bl.onrender.com/video/short",
-"https://noobs-api-d7bl.onrender.com/video/event",
-"https://noobs-api-d7bl.onrender.com/video/prefix",
-"https://noobs-api-d7bl.onrender.com/video/cpl",
-"https://noobs-api-d7bl.onrender.com/video/time",
-"https://noobs-api-d7bl.onrender.com/video/lofi",
-"https://noobs-api-d7bl.onrender.com/video/happy"
+  var shaon = ["https://all-api-ius8.onrender.com/video/status",
+"https://all-api-ius8.onrender.com/video/sad",
+"https://all-api-ius8.onrender.com/video/baby",
+"https://all-api-ius8.onrender.com/video/love",
+"https://all-api-ius8.onrender.com/video/ff",
+"https://all-api-ius8.onrender.com/video/shairi",
+"https://all-api-ius8.onrender.com/video/humaiyun",
+"https://all-api-ius8.onrender.com/video/islam",
+"https://all-api-ius8.onrender.com/video/anime",
+"https://all-api-ius8.onrender.com/video/short",
+"https://all-api-ius8.onrender.com/video/event",
+"https://all-api-ius8.onrender.com/video/prefix",
+"https://all-api-ius8.onrender.com/video/cpl",
+"https://all-api-ius8.onrender.com/video/time",
+"https://all-api-ius8.onrender.com/video/lofi",
+"https://all-api-ius8.onrender.com/video/happy"
 ]
   var shaon1 = shaon[Math.floor(Math.random() * shaon.length)]
   axios.get(shaon1).then(res => {
