@@ -13,29 +13,47 @@ module.exports.config = {
   cooldowns: 2
 };
 
-module.exports.run = async function ({ api, event, args }) {
-  let link = args.join(" ");
+module.exports.handleEvent = async function ({ api, event }) {
+  const tiktokPatterns = [
+    /https:\/\/vm\.tiktok\.com\/[A-Za-z0-9]+/,
+    /https:\/\/m\.tiktok\.com\/[A-Za-z0-9]+/,
+    /https:\/\/vt\.tiktok\.com\/[A-Za-z0-9]+/,
+    /https:\/\/(www\.)?tiktok\.com\/(@[A-Za-z0-9_.]+\/video\/[0-9]+|v\/[0-9A-Za-z]+)/
+  ];
 
-  if (!link) {
-    api.sendMessage("Please put a valid TikTok video link", event.threadID, event.messageID);
-    return;
+  const messageBody = event.body;
+  if (!messageBody) return;
+
+  let link = null;
+  for (const pattern of tiktokPatterns) {
+    const match = messageBody.match(pattern);
+    if (match) {
+      link = match[0];
+      break;
+    }
   }
 
-  api.sendMessage("𝐀𝐤𝐭𝐮 𝐰8 𝐤𝐨𝐫𝐨 <😒", event.threadID, event.messageID);
+  if (!link) return;
+
+  api.sendMessage("Downloading video, please wait...!!", event.threadID, event.messageID);
 
   try {
-   let path = __dirname + `/cache/`;
-    let res = await axios.get(`https://mx47g4-8888.csb.app/tiktok/downloadvideo?url=${encodeURIComponent(link)}`);
-    await fs.ensureDir(path);
-   path += 'tik_dip.mp4';
-    const data = res.data.data;
-    const vid = (await axios.get(data.play, { responseType: "arraybuffer" })).data;
-    fs.writeFileSync(path, Buffer.from(vid, 'stream'));
-    api.sendMessage({
-      body: `✅Title:${data.title}.\n✅Play Count: ${data.play_count}.\n✅Comment Count: ${data.comment_count}.\n✅Share Count: ${data.share_count}.\n✅Download Count: ${data.download_count}`, attachment: fs.createReadStream(path)
-    }, event.threadID, () => fs.unlinkSync(path), event.messageID);
+    const tempPath = path.join(__dirname, 'cache', 'tik_dip.mp4');
+    const response = await axios.get(`https://all-api-ius8.onrender.com/tiktok/downloadvideo?url=${encodeURIComponent(link)}`);
+    const data = response.data.data;
 
-  } catch (e) {
-    api.sendMessage(`${e}`, event.threadID, event.messageID);
-  };
+    const videoResponse = await axios.get(data.play, { responseType: "arraybuffer" });
+    fs.writeFileSync(tempPath, Buffer.from(videoResponse.data));
+
+    api.sendMessage({
+      body: `⋆✦⋆⎯⎯⎯⎯⎯⎯⎯⎯⎯⋆✦⋆\n\n🔰Downloaded Tiktok Video✅\n\n⋆✦⋆⎯⎯⎯⎯⎯⎯⎯⎯⎯⋆✦⋆`,
+      attachment: fs.createReadStream(tempPath)
+    }, event.threadID, () => fs.unlinkSync(tempPath), event.messageID);
+
+  } catch (error) {
+    console.error(error);
+    api.sendMessage(`Error: ${error.message}`, event.threadID, event.messageID);
+  }
 };
+
+module.exports.run = function () {};
