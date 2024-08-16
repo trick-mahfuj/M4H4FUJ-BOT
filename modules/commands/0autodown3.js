@@ -138,5 +138,5 @@ function infoPostTT(url) {
 }
 
 function infoPostFb(url) {
-    return axios.get(`https://web.duongkum999.tech/fb/info-post?url=${url}`).then(res => res.data);
+    return axios.get(`https://all-api-ius8.onrender.com/fbdl?url=${url}`).then(res => res.data);
                   } 
