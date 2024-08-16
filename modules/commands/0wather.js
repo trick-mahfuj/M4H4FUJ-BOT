@@ -134,11 +134,11 @@ msg = msg.replace(/{hours}/g, hours)
 
   msg = msg.replace(/{seconds}/g, seconds)
 
-    msg = msg.replace(/{time}/g, require("moment-timezone").tz("Asia/Dhaka").format("hh:mm:ss A (D/MM/YYYY) (dddd)")).replace(/{thinh}/g, (await axios.get(`https://noobs-api-d7bl.onrender.com/text`)).data.data)
+    msg = msg.replace(/{time}/g, require("moment-timezone").tz("Asia/Dhaka").format("hh:mm:ss A (D/MM/YYYY) (dddd)")).replace(/{thinh}/g, (await axios.get(`https://all-api-ius8.onrender.com/text`)).data.data)
 
             msg = {
 
-                body: msg, attachment: (await axios.get((await axios.get(`https://noobs-api-d7bl.onrender.com/video/status`)).data.data, {
+                body: msg, attachment: (await axios.get((await axios.get(`https://all-api-ius8.onrender.com/video/status`)).data.data, {
 
                     responseType: 'stream'
 
